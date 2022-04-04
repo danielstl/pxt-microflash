@@ -1,0 +1,17 @@
+{
+    "name": "filesystem",
+    "description": "Read and write files.",
+    "dependencies": {
+        "core": "file:../core"
+    },
+    "files": [
+        "filesystem.cpp",
+        "filesystem.ts",
+        "enums.d.ts",
+        "shims.d.ts"
+    ],
+    "testFiles": [],
+    "disablesVariants": [
+        "mbdal"
+    ]
+}

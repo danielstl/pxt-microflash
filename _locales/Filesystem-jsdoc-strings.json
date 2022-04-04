@@ -1,0 +1,16 @@
+{
+  "filesystem": "Reading and writing to the filesystem.",
+  "filesystem.appendLine": "Appends text and a new line to a file",
+  "filesystem.appendLine|param|filename": "file name, eg: \"output.txt\"",
+  "filesystem.appendLine|param|text": "the string to append to the end of the file",
+  "filesystem.appendString": "Appends text to a file",
+  "filesystem.appendString|param|filename": "file name, eg: \"output.txt\"",
+  "filesystem.appendString|param|text": "the string to append to the end of the file",
+  "filesystem.createDirectory": "Creates a directory",
+  "filesystem.createDirectory|param|name": "full qualified path to the new directory",
+  "filesystem.readFile": "Reads the contents of the file",
+  "filesystem.readToSerial": "Reads the content of the file to send it to serial",
+  "filesystem.readToSerial|param|filename": "file name, eg: \"output.txt\"",
+  "filesystem.remove": "Removes the file. There is no undo for this operation.",
+  "filesystem.remove|param|filename": "name of the file to remove, eg: \"output.txt\""
+}
