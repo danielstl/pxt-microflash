@@ -27,10 +27,10 @@ namespace filesystem {
     * @param filename file name, eg: "output.txt"
     * @param text the string to append to the end of the file
     */
-//% blockId="files_append_line" block="file %filename append line %text"
+//% blockId="files_append_line" block="append %text to file %filename"
 //% blockExternalInputs=1 weight=90 blockGap=8
 //% text.shadowOptions.toString=true
-    void appendLine(String filename, String text)
+    void appendLine(String text, String filename)
     {
     #if MICROBIT_CODAL
         initFileSystem();
@@ -47,10 +47,10 @@ namespace filesystem {
     * @param filename file name, eg: "output.txt"
     * @param text the string to append to the end of the file
     */
-//% blockId="fs_append_string" block="file %filename append string %text"
+//% blockId="fs_append_string" block="append %text to file %filename with newline"
 //% blockExternalInputs=1 weight=86 blockGap=8
 //% text.shadowOptions.toString=true
-    void appendString(String filename, String text)
+    void appendString(String text, String filename)
     {
     #if MICROBIT_CODAL
         initFileSystem();
@@ -65,7 +65,7 @@ namespace filesystem {
 * Reads the content of the file to send it to serial
 * @param filename file name, eg: "output.txt"
 */
-//% blockId="fs_write_to_serial" block="file %filename|read to serial"
+//% blockId="fs_write_to_serial" block="read file %filename to serial"
 //% weight=80
     void readToSerial(String filename) {
     #if MICROBIT_CODAL
@@ -89,7 +89,7 @@ namespace filesystem {
     * @param filename file name, eg: "output.txt"
     */
     //% blockId="fs_read_file" block="read file %fd"
-    //% weight=80
+    //% weight=80 advanced=true
         String readFile(int fd) {
         #if MICROBIT_CODAL
             initFileSystem();
@@ -111,8 +111,8 @@ namespace filesystem {
     * Removes the file. There is no undo for this operation.
     * @param filename name of the file to remove, eg: "output.txt"
     */
-//% blockId="fs_remove" block="file remove %filename"
-//% weight=80 advanced=true blockGap=8
+//% blockId="fs_remove" block="delete file %filename"
+//% weight=80 blockGap=8
     void remove(String filename)
     {
     #if MICROBIT_CODAL
@@ -125,8 +125,8 @@ namespace filesystem {
 * Creates a directory
 * @param name full qualified path to the new directory
 */
-//% advanced=true weight=10
-//% blockId=files_create_directory block="files create directory %name"
+//% weight=10
+//% blockId=files_create_directory block="create directory %name"
     void createDirectory(String name) {
     #if MICROBIT_CODAL
         initFileSystem();
@@ -148,7 +148,7 @@ namespace filesystem {
 /**
 *
 */
-//% blockId="fs_flush" block="flush file handle %fd"
+//% blockId="fs_flush" block="flush file handle %fd" advanced=true
     int fsFlush(int fd) {
     #if MICROBIT_CODAL
         if (fd < 0) return MICROBIT_NOT_SUPPORTED;
@@ -161,7 +161,7 @@ namespace filesystem {
 /**
 *
 */
-//% blockId="fs_close" block="close file handle %fd"
+//% blockId="fs_close" block="close file handle %fd" advanced=true
     int fsClose(int fd) {
     #if MICROBIT_CODAL
         if (fd < 0) return MICROBIT_NOT_SUPPORTED;
@@ -174,7 +174,7 @@ namespace filesystem {
 /**
 *
 */
-//% blockId="fs_seek" block="seek file %fd to offset %offset with flags %flags"
+//% blockId="fs_seek" block="seek file %fd to offset %offset with flags %flags" advanced=true
     int fsSeek(int fd, int offset, int flags) {
     #if MICROBIT_CODAL
         if (fd < 0) return MICROBIT_NOT_SUPPORTED;
@@ -202,7 +202,7 @@ namespace filesystem {
 /**
 *
 */
-//% blockId="fs_read_handle" block="read file handle %fd"
+//% blockId="fs_read_handle" block="read file handle %fd" advanced=true
     int fsRead(int fd) {
     #if MICROBIT_CODAL
         if (fd < 0) return MICROBIT_NOT_SUPPORTED;
@@ -218,7 +218,7 @@ namespace filesystem {
     /**
     *
     */
-    //% blockId="fs_write_buffer" block="write %fd %buffer"
+    //% blockId="fs_write_buffer" block="write %fd %buffer" advanced=true
     int fsWriteBuffer(int fd, Buffer buffer) {
     #if MICROBIT_CODAL
         if (fd < 0) return MICROBIT_NOT_SUPPORTED;
@@ -230,7 +230,7 @@ namespace filesystem {
 
     /**
     */
-    //% blockId="fs_read_buffer" block="read %fd length %length"
+    //% blockId="fs_read_buffer" block="read %fd length %length" advanced=true
     Buffer fsReadBuffer(int fd, int length) {
     #if MICROBIT_CODAL
         if (fd < 0 || length < 0)
@@ -254,7 +254,7 @@ namespace filesystem {
     /**
     *
     */
-    //% blockId="fs_test_dir" block="create test directory"
+    //% blockId="fs_test_dir" block="create test directories" advanced=true
         void test() {
         #if MICROBIT_CODAL
 

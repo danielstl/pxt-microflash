@@ -126,7 +126,7 @@ namespace filesystem {
     //% blockId="files_read_string" block="read string from %file"
     export function readString(path: string): string {
         const handle = filesystem.fsOpen(path, FileOpenFlag.Read);
-        const buffer = filesystem.fsReadBuffer(handle, 2048);
+        const buffer = filesystem.fsReadBuffer(handle, 4096);
 
         filesystem.fsClose(handle);
 
